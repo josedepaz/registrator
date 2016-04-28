@@ -189,7 +189,9 @@ func (b *Bridge) add(containerId string, quiet bool) {
 	}
 
 	if len(ports) == 0 && !quiet {
-		log.Println("ignored:", container.ID[:12], "no published ports")
+		ports["8080"] = servicePortDefault(container, "8080") 
+		//log.Println("ignored:", container.ID[:12], "no published ports")
+		log.Println("registered:", container.ID[:12], "in default 8080 port")
 		return
 	}
 
