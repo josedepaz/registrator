@@ -222,7 +222,8 @@ func (b *Bridge) add(containerId string, quiet bool) {
 func (b *Bridge) newService(port ServicePort, isgroup bool) *Service {
 	container := port.container
 	defaultName := strings.Split(path.Base(container.Config.Image), ":")[0]
-	log.Println("Default Name: ", defaultName)
+	log.Println("Default Name:", defaultName)
+	log.Println("Name:", container.Name)
 
 	// not sure about this logic. kind of want to remove it.
 	hostname := Hostname
